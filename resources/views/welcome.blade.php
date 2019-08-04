@@ -45,7 +45,7 @@
             }
 
             .title {
-                font-size: 84px;
+                font-size: 54px;
             }
 
             .links > a {
@@ -81,7 +81,10 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                   Tao là Khánh Anh tao rất đẹp trai sở thích của tao là chơi các bà già 80 tuổi
+                    <div>
+                    <img width="200px" height="300px" src="https://scontent.fhan2-1.fna.fbcdn.net/v/t1.15752-9/s2048x2048/67971520_1283067795193641_7618396754668421120_n.jpg?_nc_cat=101&_nc_oc=AQkTHa9-eDzQv3UTyriDqqkgwB99D_l98_NO7XwB1wQTcO07i7Q74_CXf9xbaJ8Rg6AvossECcSPz4cWAuFRZz9y&_nc_ht=scontent.fhan2-1.fna&oh=dd8def13c2c3bc82739a463eac18dbaa&oe=5DEA43EC" alt="">
+                    </div>
                 </div>
 
                 <div class="links">
