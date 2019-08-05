@@ -63,22 +63,22 @@ return [
             ]) : [],
         ],
 
-        'pgsql' => [
+ /*       'pgsql' => [
             'driver' => 'pgsql',
             'url' => 'postgres://maoxvwvdmktatx:8fc9cb3286de9cf7c0e2214c92f04d0d60cead50adf5622a762c98abf7f5d639@ec2-174-129-226-234.compute-1.amazonaws.com:5432/d93lsombmk37gp',
             'host' => 'ec2-174-129-226-234.compute-1.amazonaws.com',
             'port' => '5432',
             'database' => 'd93lsombmk37gp',
             'username' => 'maoxvwvdmktatx',
-            'password' => '5432',
+            'password' => '8fc9cb3286de9cf7c0e2214c92f04d0d60cead50adf5622a762c98abf7f5d639',
             'charset' => 'utf8',
             'prefix' => '',
             'prefix_indexes' => true,
             'schema' => 'public',
             'sslmode' => 'prefer',
-        ],
+        ],*/
 
-       /* 'pgsql' => [
+        'pgsql' => [
             'driver' => 'pgsql',
             'url' => '',
             'host' => '127.0.0.1',
@@ -91,7 +91,7 @@ return [
             'prefix_indexes' => true,
             'schema' => 'public',
             'sslmode' => 'prefer',
-        ],*/
+        ],
         'sqlsrv' => [
             'driver' => 'sqlsrv',
             'url' => env('DATABASE_URL'),

@@ -11,6 +11,11 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/form', function () {
+    return view('form');
 });
+Route::post('/form','LayoutController@postform'
+);
+Route::resource('/game','GameController'
+);
+
