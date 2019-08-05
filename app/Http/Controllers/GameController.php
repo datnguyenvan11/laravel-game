@@ -17,7 +17,7 @@ class GameController extends Controller
      */
     public function index()
     {
-        $game=Game::latest()->paginate(5);
+        $game=Game::latest()->paginate(1);
         return view('home')->with(['game'=>$game]);
     }
 

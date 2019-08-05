@@ -186,9 +186,10 @@ tr{
 
                     </tbody>
                 </table>
-                <div class="row">{{$game->links()}}</div>
 
             </div>
+            <div  style="width: 20px;height: 50px;margin-left: 80%" class="row">{{$game->links()}}</div>
+
         </div>
 
 
