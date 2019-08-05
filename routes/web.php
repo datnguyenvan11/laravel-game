@@ -10,12 +10,6 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/form', function () {
-    return view('form');
-});
-Route::post('/form','LayoutController@postform'
-);
 Route::resource('/game','GameController'
 );
 

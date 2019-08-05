@@ -78,7 +78,7 @@ return [
             'sslmode' => 'prefer',
         ],
 
-       /* 'pgsql' => [
+        /*'pgsql' => [
             'driver' => 'pgsql',
             'url' => '',
             'host' => '127.0.0.1',

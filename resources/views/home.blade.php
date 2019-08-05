@@ -13,6 +13,8 @@
         body {
             padding: 0;
             margin: 0;
+            background-image: url("http://sfwallpaper.com/images/background-gaming-4.jpg");
+            background-size: cover;
         }
 
         .imglogo {
@@ -26,19 +28,18 @@
             text-align: center;
             font-size: 60px;
             font-family: 'Abril Fatface', cursive;
-            color: black;
+            color: white;
             margin-top: 40px;
 
         }
 
         .header {
-            background-size: cover;
+
         }
 
         .cart {
             width: 100%;
             height: 50px;
-            border: 1px solid black;
             font-size: 25px;
             margin-bottom: 10px;
             margin-left: 3px;
@@ -59,7 +60,7 @@
         }
 
         .menu {
-            background: #1b4b72;
+            background: rgba(196, 211, 235, 0.24);
             height: 600px;
             margin-top: 1px;
         }
@@ -79,11 +80,15 @@
 
         .title {
             margin: 5px;
-        }
-        .alert{
-            display: none;
+            color: white;
         }
 
+        .alert {
+            display: none;
+        }
+tr{
+    color: white;
+}
 
     </style>
 </head>
@@ -110,11 +115,11 @@
             </div>
             <div class=" cart row">
                 <a href="/game">
-                    -Danh sách Game </a>
+                    Danh sách Game </a>
             </div>
             <div class="cart row">
-                <a href="/form">
-                    -Thêm game
+                <a href="/game/create">
+                    Thêm game
                 </a></div>
 
         </div>
@@ -126,8 +131,8 @@
                 </div>
                 <!-- Example split danger button -->
                 <div style="margin-left: 10px;width: 90px" class="btn-group">
-                    <button type="button" class="btn btn-danger">Tìm kiếm</button>
-                    <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split"
+                    <button type="button" class="btn btn-secondary">Thể loại</button>
+                    <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <span class="sr-only">Toggle Dropdown</span>
                     </button>
@@ -139,7 +144,7 @@
                         <a class="dropdown-item" href="#">Separated link</a>
                     </div>
                 </div>
-                <input style="width: 70px;margin-left: 15px" type="submit" class="btn btn-primary" value="Thể loại">
+                <input style="width: 70px;margin-left: 15px" type="submit" class="btn btn-primary" value=" Tìm kiếm">
             </div>
             <div class="row">
                 <table class="table table-bordered">
@@ -161,29 +166,31 @@
                             <td>{{$regame->theloai}}</td>
                             <td>{{$regame->gia}}</td>
                             <td>
-                                <form action="{{route('game.destroy',$regame->id)}}" method="POST">
-                                    @method('DELETE')
-                                    @csrf
-                                    <input style="width: 70px" type="submit"
-                                           class="btn btn-primary" id="delete" value="Xoá">
-                                </form>
+
+                                    <form style="margin-bottom: 5px" action="{{route('game.destroy',$regame->id)}}" method="POST">
+                                        @method('DELETE')
+                                        @csrf
+                                        <input style="width: 70px" type="submit"
+                                               class="btn btn-danger" id="delete" value="Xoá">
+                                    </form>
+
+                                    <a href="{{ route('game.edit',$regame->id)}}"> <input style="width: 70px"
+                                                                                          type="submit"
+                                                                                          class="btn btn-primary"
+                                                                                          id="delete" value="Sửa"></a>
+
                             </td>
+
                         </tr>
-
-
                     @endforeach
+
                     </tbody>
                 </table>
-                <div class="row">
-                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                        <strong>Holy guacamole!</strong> You should check in on some of those fields below.
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                </div>
+                <div class="row">{{$game->links()}}</div>
+
             </div>
         </div>
+
 
     </div>
 </div>

@@ -20,11 +20,12 @@
         body {
             margin: 0;
             padding: 0;
-            background: white;
             font-size: 16px;
             color: #222;
             font-family: 'Roboto', sans-serif;
             font-weight: 300;
+            background-image: url("http://sfwallpaper.com/images/background-gaming-4.jpg");
+            background-size: cover;
         }
 
         #login-box {
@@ -175,6 +176,8 @@
             background: #DD4B39;
         }
 
+
+
         .imglogo {
             border-radius: 10px;
             margin-left: 40px;
@@ -186,19 +189,18 @@
             text-align: center;
             font-size: 60px;
             font-family: 'Abril Fatface', cursive;
-            color: black;
+            color: white;
             margin-top: 40px;
 
         }
 
         .header {
-            background-size: cover;
+
         }
 
         .cart {
             width: 100%;
             height: 50px;
-            border: 1px solid black;
             font-size: 25px;
             margin-bottom: 10px;
             margin-left: 3px;
@@ -219,7 +221,7 @@
         }
 
         .menu {
-            background: #1b4b72;
+            background: rgba(196, 211, 235, 0.24);
             height: 600px;
             margin-top: 1px;
         }
@@ -239,8 +241,12 @@
 
         .title {
             margin: 5px;
+            color: white;
         }
 
+        .alert {
+            display: none;
+        }
     </style>
 </head>
 <body>
@@ -267,16 +273,16 @@
             </div>
             <div class=" cart row">
                 <a href="/game">
-                    -Danh sách Game </a>
+                    Danh sách Game </a>
             </div>
             <div class="cart row">
                 <a href="/form">
-                    -Thêm game
+                    Thêm game
                 </a></div>
         </div>
         <div style="margin-top: 40px" class="col-9">
-            <div class=" title row"><h2>Danh sách Game</h2></div>
-            <form id="login-box" method="post" action="/form">
+            <div class=" title row"><h2>Thêm game</h2></div>
+            <form id="login-box" action="{{ route('game.store') }}" method="POST">
                 @csrf
                 <div class="left">
                     <h1>Create</h1>
@@ -285,7 +291,7 @@
                     <input type="text" name="theloai" placeholder="Thể loại"/>
                     <input type="text" name="gia" placeholder="Giá"/>
 
-                    <input type="submit" name="signup_submit" value="Sign me up"/>
+                    <input type="submit" name="signup_submit" value="Gửi"/>
                 </div>
 
                 <div class="right">

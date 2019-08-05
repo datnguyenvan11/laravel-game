@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Game;
+use Illuminate\Contracts\Session\Session;
 use Illuminate\Database\Eloquent\Concerns\GuardsAttributes;
 use Illuminate\Http\Request;
+use App\Http\Requests\StoreCategoryRequest;
 
 class GameController extends Controller
 {
@@ -15,7 +17,7 @@ class GameController extends Controller
      */
     public function index()
     {
-        $game=Game::all();
+        $game=Game::latest()->paginate(5);
         return view('home')->with(['game'=>$game]);
     }
 
@@ -26,7 +28,7 @@ class GameController extends Controller
      */
     public function create()
     {
-        return view('edit');
+        return view('form');
     }
 
     /**
@@ -37,9 +39,10 @@ class GameController extends Controller
      */
     public function store(Request $request)
     {
-        Game::create(['name'=>$request->name,'ma'=>$request->ma,'theloai'=>$request->theloai,'gia'=>$request->gia]);
-        return redirect('/game');
-    }
+        Game::create($request->all());
+
+        return redirect('/game')
+            ->with('success', 'Game created successfully.');  }
 
     /**
      * Display the specified resource.
@@ -53,7 +56,7 @@ class GameController extends Controller
         if ($game == null){
             return view('error.404');
         }
-        return view('edit')->with('game',$game);
+        return view('home')->with('game',$game);
     }
 
 
@@ -64,11 +67,10 @@ class GameController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Game $game)
     {
-        $game = Game::find($id);
-        return view('edit')->with('game',$game) ;   }
-
+        return view('edit')->with('game', $game);
+    }
     /**
      * Update the specified resource in storage.
      *
@@ -76,10 +78,21 @@ class GameController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Game $game)
+    /*public function update(Request $request, Game $game)
     {
-        Game::find($game->id)->update($request->all());
-        return redirect('game');
+        $game->update($request->all());
+        return redirect()->route('/game')
+            ->with('success', 'Game updated successfully');
+    }*/
+    public function update(Request $request, $id)
+    {
+        $obj = Game::find($id);
+        $obj->name = $request->get('name');
+        $obj->ma = $request->get('ma');
+        $obj->theloai = $request->get('theloai');
+        $obj->gia = $request->get('gia');
+        $obj->save();
+        return redirect('/game');
     }
 
     /**
@@ -94,4 +107,5 @@ class GameController extends Controller
         return redirect('/game');
     }
 
-}
+   }
+
