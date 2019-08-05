@@ -62,23 +62,23 @@ return [
                 PDO::MYSQL_ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA'),
             ]) : [],
         ],
-/*
+
         'pgsql' => [
             'driver' => 'pgsql',
-            'url' => env('DATABASE_URL'),
-            'host' => env('DB_HOST', '127.0.0.1'),
-            'port' => env('DB_PORT', '5432'),
-            'database' => env('DB_DATABASE', 'forge'),
-            'username' => env('DB_USERNAME', 'forge'),
-            'password' => env('DB_PASSWORD', ''),
+            'url' => 'postgres://maoxvwvdmktatx:8fc9cb3286de9cf7c0e2214c92f04d0d60cead50adf5622a762c98abf7f5d639@ec2-174-129-226-234.compute-1.amazonaws.com:5432/d93lsombmk37gp',
+            'host' => 'ec2-174-129-226-234.compute-1.amazonaws.com',
+            'port' => '5432',
+            'database' => 'd93lsombmk37gp',
+            'username' => 'maoxvwvdmktatx',
+            'password' => '5432',
             'charset' => 'utf8',
             'prefix' => '',
             'prefix_indexes' => true,
             'schema' => 'public',
             'sslmode' => 'prefer',
-        ],*/
+        ],
 
-        'pgsql' => [
+       /* 'pgsql' => [
             'driver' => 'pgsql',
             'url' => '',
             'host' => '127.0.0.1',
@@ -91,7 +91,7 @@ return [
             'prefix_indexes' => true,
             'schema' => 'public',
             'sslmode' => 'prefer',
-        ],
+        ],*/
         'sqlsrv' => [
             'driver' => 'sqlsrv',
             'url' => env('DATABASE_URL'),
